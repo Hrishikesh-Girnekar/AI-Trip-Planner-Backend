@@ -25,7 +25,7 @@ const server = http.createServer(app);
 // Initialize Socket.IO
 const io = socketIo(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: "https://ai-trip-planner-frontend-one.vercel.app" || "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
@@ -85,13 +85,6 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   optionsSuccessStatus: 200,
 };
-
-if (process.env.NODE_ENV === "production" && process.env.ALLOWED_ORIGINS) {
-  corsOptions.origin = process.env.ALLOWED_ORIGINS.split(",").map((origin) =>
-    origin.trim()
-  );
-  console.log("Allowed Origins:", corsOptions.origin);
-}
 
 app.use(cors(corsOptions));
 
