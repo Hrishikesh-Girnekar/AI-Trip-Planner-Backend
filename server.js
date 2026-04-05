@@ -311,15 +311,11 @@ process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 // Handle uncaught exceptions
 process.on("uncaughtException", (err) => {
   logger.error("Uncaught Exception:", err);
-  gracefulShutdown("uncaughtException");
 });
 
 process.on("unhandledRejection", (reason, promise) => {
   logger.error("Unhandled Rejection at:", promise, "reason:", reason);
-  // Only shutdown in production, log in development
-  if (process.env.NODE_ENV === "production") {
-    gracefulShutdown("unhandledRejection");
-  }
+  console.error("Unhandled Rejection:", reason);
 });
 
 // Start server
