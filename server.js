@@ -79,7 +79,7 @@ const aiRoutes = require("./routes/ai");
 
 // Enhanced CORS configuration
 const corsOptions = {
-  origin: ["http://localhost:3000", "http://127.0.0.1:3000","http://localhost:5173"],
+  origin: ["https://ai-trip-planner-frontend-one.vercel.app","http://localhost:3000", "http://127.0.0.1:3000","http://localhost:5173"],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
